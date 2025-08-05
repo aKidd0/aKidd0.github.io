@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Resources",
+    "\\Resources\\Images"
   ],
-  "SelectedNode": "\\C:\\Users\\kiddo\\Source\\Repos\\aKidd0.github.io",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }

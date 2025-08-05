@@ -83,16 +83,18 @@ input, select, textarea {
 		display: flex; 
 		justify-content: center; 
 		align-items: center; 
-		height: 60px; 
+		height: 80px; 
 		box-shadow: 0 0 5px #EBE8E2; 
 		z-index: 1000; 
-		bottom: 0; /* Por defecto, fija abajo */ 
-		top: auto; 
+		bottom: auto; /* Por defecto, fija abajo */ 
+		top: 0; 
 
 	}
 
 	/* Logo */
-	.logo { height: 40px; /* Puedes ajustar el tamaño del logo */ }
+	.logo { height: 70px; /* Puedes ajustar el tamaño del logo */
+			padding: 5px;
+	}
 
 	/* En pantallas pequeñas, fija arriba */
 	@media (max-width: 768px) {

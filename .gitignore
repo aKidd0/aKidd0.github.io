@@ -370,3 +370,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/aKidd0.github.io/v17/.wsuo
+/.vs/aKidd0.github.io/FileContentIndex/read.lock

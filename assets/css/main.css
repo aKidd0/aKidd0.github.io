@@ -577,6 +577,13 @@ input, select, textarea {
 				ul.grid-icons > li:before { display: none !important; }
 
 				ul.grid-icons > li:after { display: none !important; }
+
+			ul.grid-icons.three { flex-direction: row !important; width: 100% !important; justify-content: flex-start; }
+
+				ul.grid-icons.three > li { margin: 1rem 1rem 0 0 !important; }
+
+				ul.grid-icons.three.connected > li:before,
+				ul.grid-icons.three.connected > li:after { display: none !important; }
 	}
 
 	/* Contact Icons */
@@ -1464,7 +1471,7 @@ input, select, textarea {
 
 	/* Wrapper */
 
-	#wrapper { display: -moz-flex; display: -webkit-flex; display: -ms-flex; display: flex; -moz-flex-direction: row; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -moz-transition: opacity 1s ease-out, -moz-transform 0.75s ease-out; -webkit-transition: opacity 1s ease-out, -webkit-transform 0.75s ease-out; -ms-transition: opacity 1s ease-out, -ms-transform 0.75s ease-out; transition: opacity 1s ease-out, transform 0.75s ease-out; -moz-transition-delay: 0.25s; -webkit-transition-delay: 0.25s; -ms-transition-delay: 0.25s; transition-delay: 0.25s; cursor: default; position: relative; height: 32rem; box-shadow: 0 2rem 4rem 0.25rem rgba(46, 43, 55, 0.575); }
+	#wrapper { display: -moz-flex; display: -webkit-flex; display: -ms-flex; display: flex; -moz-flex-direction: row; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -moz-transition: opacity 1s ease-out, -moz-transform 0.75s ease-out; -webkit-transition: opacity 1s ease-out, -webkit-transform 0.75s ease-out; -ms-transition: opacity 1s ease-out, -ms-transform 0.75s ease-out; transition: opacity 1s ease-out, transform 0.75s ease-out; -moz-transition-delay: 0.25s; -webkit-transition-delay: 0.25s; -ms-transition-delay: 0.25s; transition-delay: 0.25s; cursor: default; position: relative; height: 38rem; margin-top:100px; box-shadow: 0 2rem 4rem 0.25rem rgba(46, 43, 55, 0.575); }
 
 		#wrapper > .scrollZone { position: fixed; width: 6rem; height: inherit; cursor: -moz-grab; cursor: -webkit-grab; cursor: -ms-grab; cursor: grab; z-index: 10100; }
 
@@ -1503,3 +1510,56 @@ input, select, textarea {
 
 		body.is-preload #wrapper { -moz-transform: none; -webkit-transform: none; -ms-transform: none; transform: none; }
 	}
+
+p { text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; text-align-last: left; }
+
+/* --- Layout específico para el panel #first ---
+   - Escritorio: iconos en columna a la derecha (estrecha) y texto ocupa el resto.
+   - Móvil: iconos en fila y centrados, comportamiento original.
+*/
+@media screen and (min-width: 737px) {
+	/* Convertimos sólo este panel a grid para controlar columnas */
+	section#first.panel { display: grid; /* 1fr para el texto (crece) + columna estrecha para iconos */ grid-template-columns: 1fr 6.5rem; column-gap: 2.625rem; /* mantiene el espaciado previo */ align-items: center; /* Mantener el "tamaño horizontal" visual del bloque (seguridad) */ max-width: calc(18.5rem + 21.5rem + 2.625rem); }
+
+	/* Limita el ancho del texto para que termine antes de la columna de iconos */
+	section#first .intro.joined { width: 90%; max-width: 36rem; /* Ajusta este valor hasta que el texto termine en la línea deseada */ box-sizing: border-box; padding-right: 1rem; /* espacio respecto a la columna de iconos */ }
+
+	section#first .intro.joined p { margin-right: 0; word-wrap: break-word; text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; text-align-last: left; }
+
+	.intro h3 { margin-right: 0; word-wrap: break-word; text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; text-align-last: left; }
+
+	/* Columna de iconos alineada a la derecha dentro del grid */
+	section#first > .inner { justify-self: end; width: auto; padding: 0; /* el gap lo controla column-gap */ }
+
+	/* Icons: verticales y centrados en su columna */
+	section#first ul.grid-icons.three { display: flex; flex-direction: column; justify-content: center; align-items: center; width: auto; /* que ocupe lo justo */ margin: 0; padding: 0; }
+
+		/* Tamaño de los círculos / iconos como en escritorio original */
+		section#first ul.grid-icons.three .icon:before { width: 6rem; height: 6rem; line-height: 6rem; font-size: 2.5rem; }
+
+		/* Conectores: ocultar la línea horizontal y mostrar la vertical */
+		section#first ul.grid-icons.three.connected > li:before { display: none !important; }
+		section#first ul.grid-icons.three.connected > li:after { content: ''; display: block; position: absolute; width: 2px; height: 2rem; top: -2rem; left: 50%; background-color: rgba(255, 255, 255, 0.18); transform: translateX(-50%); }
+		/* El primer elemento no muestra conector superior */
+		section#first ul.grid-icons.three.connected > li:first-child:after { display: none; }
+		/* Asegurar que cada <li> tenga suficiente altura para el conector */
+		section#first ul.grid-icons.three > li { position: relative; margin: 1rem 0; }
+}
+
+/* Móvil: volver a la fila y centrar los iconos, y dejar el layout del panel en modo columna */
+@media screen and (max-width: 736px) {
+	section#first.panel { display: block; /* recuperar comportamiento responsive original */ }
+
+		section#first .intro.joined p { text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; text-align-last: left; }
+
+
+	section#first > .inner { padding-left: 1.75rem; }
+
+	section#first ul.grid-icons.three { flex-direction: row !important; justify-content: center !important; align-items: center !important; width: 100% !important; margin: 0.5rem 0 0 0; }
+
+		section#first ul.grid-icons.three > li { margin: 0 0.75rem 0 0.75rem !important; }
+
+		/* Ocultar conectores (ya estaban) */
+		section#first ul.grid-icons.three.connected > li:before,
+		section#first ul.grid-icons.three.connected > li:after { display: none !important; }
+}

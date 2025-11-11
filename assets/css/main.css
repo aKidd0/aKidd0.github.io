@@ -1157,9 +1157,9 @@ input, select, textarea {
 
 	@media screen and (max-width: 736px) {
 
-		.panel { -moz-flex-direction: column; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; height: auto; }
+		.panel { -moz-flex-direction: column; background-image: linear-gradient(180deg, #96B57C 0%, #A4C63E 40%, #B4D061 50%); color: #000000; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; height: auto; }
 
-			.panel h2, h3, h4, h1, strong, ul, table {color: #000000;}
+		.panel h2, h3, h4, h1, strong, ul, table {color: #000000 !important; }
 
 	.panel > *.color0 { background-image: url("../../images/overlay.png"), linear-gradient(45deg, #7BB573 20%, #5DC3EC 60%, #5BBDE1); background-size: 128px 128px, auto; }
 
@@ -1594,6 +1594,32 @@ section#third .table-wrapper { /* centra la tabla si queda más estrecha que el c
 	section#third .table-wrapper thead th,
 	section#third .table-wrapper tbody td,
 	section#third .table-wrapper tfoot td { padding: 0.6rem 0.75rem; }
+	section#fifth,
+	section#second,
+	section#first,
+	section#fifth .intro { background-image: none !important; /* elimina overlays/gradientes previos */ background-color: #000 !important; }
+
+		/* Asegurar legibilidad del texto en fondo negro */
+		section#fifth,
+		section#fifth .intro,
+		section#fifth .intro p,
+		section#fifth .intro strong,
+		section#fifth .intro h2,
+		section#fifth .intro h3,
+		section#fifth .intro .contact-icons a,
+		ection#second,
+		section#second .intro,
+		section#second .intro p,
+		section#second .intro h2,
+		section#second .intro h3,
+		section#second .intro .contact-icons a,
+		ection#first,
+		section#first .intro,
+		section#first .intro p,
+		section#first .intro h2,
+		section#first .intro .contact-icons a { color: rgba(255,255,255,0.95) !important; }
+		section#first ul.grid-icons .icon:before { color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; /* por si hay reglas que usan text-fill */ }
+		section#first ul.grid-icons .icon:before { color: #ffffff !important; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.9) !important; }
 }
 /* Panel "Contacto" (section#fifth) — fondo negro */
 section#fifth,

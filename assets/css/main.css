@@ -923,11 +923,13 @@ input, select, textarea {
 
 	/* Panel */
 
-	.panel { display: -moz-flex; display: -webkit-flex; display: -ms-flex; display: flex; -moz-flex-grow: 0; -webkit-flex-grow: 0; -ms-flex-grow: 0; flex-grow: 0; -moz-flex-shrink: 0; -webkit-flex-shrink: 0; -ms-flex-shrink: 0; flex-shrink: 0; -moz-justify-content: center; -webkit-justify-content: center; -ms-justify-content: center; justify-content: center; -moz-align-items: -moz-stretch; -webkit-align-items: -webkit-stretch; -ms-align-items: -ms-stretch; align-items: stretch; height: 100%; overflow-x: hidden; overflow-y: auto; }
+.panel { display: -moz-flex; background-image: linear-gradient(180deg, #96B57C 0%, #A4C63E 40%, #B4D061 50%); color: #000000;display: -webkit-flex; display: -ms-flex; display: flex; -moz-flex-grow: 0; -webkit-flex-grow: 0; -ms-flex-grow: 0; flex-grow: 0; -moz-flex-shrink: 0; -webkit-flex-shrink: 0; -ms-flex-shrink: 0; flex-shrink: 0; -moz-justify-content: center; -webkit-justify-content: center; -ms-justify-content: center; justify-content: center; -moz-align-items: -moz-stretch; -webkit-align-items: -webkit-stretch; -ms-align-items: -ms-stretch; align-items: stretch; height: 100%; overflow-x: hidden; overflow-y: auto; }
 
 		.panel > * { position: relative; min-width: 10rem; }
 
-			.panel > *.color0 { background-image: url("../../images/overlay.png"), linear-gradient(45deg, #7BB573 20%, #5DC3EC 60%, #5BBDE1); background-size: 128px 128px, auto; }
+	.panel h2, h3, h4, h1, strong, ul, table {color: #000000;}
+
+	.panel > *.color0 { background-image: url("../../images/overlay.png"), linear-gradient(45deg, #7BB573 20%, #5DC3EC 60%, #5BBDE1); background-size: 128px 128px, auto; }
 
 			.panel > *.color1 { background-image: url("../../images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25)); background-size: 128px 128px, auto; background-color: #726193; }
 
@@ -1156,6 +1158,10 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		.panel { -moz-flex-direction: column; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; height: auto; }
+
+			.panel h2, h3, h4, h1, strong, ul, table {color: #000000;}
+
+	.panel > *.color0 { background-image: url("../../images/overlay.png"), linear-gradient(45deg, #7BB573 20%, #5DC3EC 60%, #5BBDE1); background-size: 128px 128px, auto; }
 
 			.panel > *.color1 { background-image: url("../../images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25)); background-size: 128px 128px, auto; background-color: #726193; }
 
@@ -1422,15 +1428,15 @@ input, select, textarea {
 
 		.panel.spotlight.left { -moz-justify-content: -moz-flex-start; -webkit-justify-content: -webkit-flex-start; -ms-justify-content: -ms-flex-start; justify-content: flex-start; }
 
-			.panel.spotlight.left .content { background-image: linear-gradient(-90deg, #96B57C 0%, #96B57C 40%, #99BB7F 50%); }
+			.panel.spotlight.left .content { background-image: linear-gradient(180deg, #96B57C 0%, #A4C63E 40%, #B4D061 50%); }
 
 		.panel.spotlight.right { -moz-justify-content: -moz-flex-end; -webkit-justify-content: -webkit-flex-end; -ms-justify-content: -ms-flex-end; justify-content: flex-end; }
 
-			.panel.spotlight.right .content { background-image: linear-gradient(90deg, #96B57C 0%, #96B57C 40%, #99BB7F 50%); }
+			.panel.spotlight.right .content { background-image: linear-gradient(90deg, #96B57C 0%, #A4C63E 40%, #99BB7F 50%); }
 
 	@media screen and (max-width: 736px) {
 
-		.panel.spotlight .content { padding: 2.8875rem 1.75rem 1.3875rem 1.75rem; -moz-flex-direction: column !important; -webkit-flex-direction: column !important; -ms-flex-direction: column !important; flex-direction: column !important; background-image: linear-gradient(0deg, #96B57C 70%, #99BB7F) !important; min-height: 25rem; max-width: 25rem; }
+		.panel.spotlight .content { align-items: center; padding: 2.8875rem 1.75rem 1.3875rem 1.75rem; -moz-flex-direction: column !important; -webkit-flex-direction: column !important; -ms-flex-direction: column !important; flex-direction: column !important; background-image: linear-gradient(0deg, #B4D061 70%, #99BB7F) !important; min-height: 25rem; }
 
 		iframe { max-width: 20rem; }
 	}
@@ -1563,3 +1569,56 @@ p { text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; -ms-hy
 		section#first ul.grid-icons.three.connected > li:before,
 		section#first ul.grid-icons.three.connected > li:after { display: none !important; }
 }
+
+/* Tabla compacta en sección "Masajes" (section#third) */
+section#third .table-wrapper { /* centra la tabla si queda más estrecha que el contenedor */ display: block; margin: 0; }
+
+	section#third .table-wrapper table { width: auto; /* no forzar 100% */ max-width: 48rem; /* ancho máximo de la tabla: ajusta según prefieras */ margin: 0; /* elimina márgenes que amplían el bloque */ border-collapse: collapse; table-layout: auto; font-size: 0.95rem; /* tamaño del texto de la tabla (más pequeño que body) */ line-height: 1.4; }
+
+	/* Encabezados ligeramente más grandes que el cuerpo */
+	section#third .table-wrapper thead th { font-size: 1rem; font-weight: 700; padding: 0.5rem 0.75rem; text-align: left; }
+
+	/* Celdas: texto más pequeño y paddings reducidos */
+	section#third .table-wrapper tbody td,
+	section#third .table-wrapper tfoot td { font-size: 0.9rem; /* texto del contenido de la tabla */ font-weight: 300; padding: 0.45rem 0.65rem; /* reduce espacio interior para tabla más compacta */ vertical-align: top; }
+
+	/* Pie de tabla */
+	section#third .table-wrapper tfoot td { font-size: 0.85rem; opacity: 0.95; }
+
+	/* Opcional: bordes sutiles para mejorar legibilidad en tamaño pequeño */
+	section#third .table-wrapper td + td { border-left: 0.06rem solid rgba(0,0,0,0.06); }
+
+/* Responsive: en móvil la tabla recupera ancho completo para evitar overflow */
+@media screen and (max-width: 736px) {
+	section#third .table-wrapper table { width: 100%; max-width: none; font-size: 0.95rem; }
+	section#third .table-wrapper thead th,
+	section#third .table-wrapper tbody td,
+	section#third .table-wrapper tfoot td { padding: 0.6rem 0.75rem; }
+}
+/* Panel "Contacto" (section#fifth) — fondo negro */
+section#fifth,
+section#second,
+section#first,
+section#fifth .intro { background-image: none !important; /* elimina overlays/gradientes previos */ background-color: #000 !important; }
+
+	/* Asegurar legibilidad del texto en fondo negro */
+	section#fifth,
+	section#fifth .intro,
+	section#fifth .intro p,
+	section#fifth .intro strong,
+	section#fifth .intro h2,
+	section#fifth .intro h3,
+	section#fifth .intro .contact-icons a,
+	ection#second,
+	section#second .intro,
+	section#second .intro p,
+	section#second .intro h2,
+	section#second .intro h3,
+	section#second .intro .contact-icons a,
+	ection#first,
+	section#first .intro,
+	section#first .intro p,
+	section#first .intro h2,
+	section#first .intro .contact-icons a { color: rgba(255,255,255,0.95) !important; }
+	section#first ul.grid-icons .icon:before { color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; /* por si hay reglas que usan text-fill */ }
+	section#first ul.grid-icons .icon:before { color: #ffffff !important; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.9) !important; }
